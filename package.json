@@ -1,0 +1,47 @@
+{
+  "name": "next-yandex-metrica",
+  "version": "0.1.0",
+  "description": "Yandex Metrica integration for Next.js",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/reapziq/next-yandex-metrica",
+  "author": "Vladislav Doronin <reapziq@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "next",
+    "next.js",
+    "yandex",
+    "metrica",
+    "metrika",
+    "analytics"
+  ],
+  "scripts": {
+    "lint": "eslint src --fix",
+    "build": "del-cli dist && tsc",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "jest": "^29.5.0",
+    "next": "^13.3.2",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "next": ">=11.0.0",
+    "react": ">=17.0.0"
+  }
+}
