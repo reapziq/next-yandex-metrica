@@ -19,9 +19,10 @@
     "analytics"
   ],
   "scripts": {
-    "lint": "eslint src --fix",
     "build": "del-cli dist && tsc",
     "prepublishOnly": "yarn build",
+    "lint": "eslint src --fix",
+    "lint:ts": "tsc --noEmit --incremental",
     "test": "jest"
   },
   "devDependencies": {
