@@ -11,6 +11,7 @@ jobs:
         run: yarn install
       - name: Lint
         run: yarn lint
+      - name: Lint TypeScript
         run: yarn lint:ts
       - name: Build
         run: yarn build
