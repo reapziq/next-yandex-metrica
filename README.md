@@ -26,13 +26,13 @@ export default function MyApp({ Component, pageProps }) {
 
 #### `YandexMetricaProvider` Props
 
-| Name             | Description                                                                                                                                              |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tagID`          | Yandex.Metrica tag ID.                                                                                                                                   |
-| `strategy`       | Script loading strategy. Defaults to `afterInteractive`. See [next/script](https://nextjs.org/docs/api-reference/next/script#strategy) for more details. |
-| `initParameters` | Yandex.Metrica tag [initialization parameters](https://yandex.com/support/metrica/code/counter-initialize.html).                                         |
+| Name             | Description                                                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `tagID`          | Yandex.Metrica tag ID.                                                                                                      |
+| `strategy`       | [next/script](https://nextjs.org/docs/api-reference/next/script#strategy) loading strategy. Defaults to `afterInteractive`. |
+| `initParameters` | Yandex.Metrica tag [initialization parameters](https://yandex.com/support/metrica/code/counter-initialize.html).            |
 
-The Yandex.Metrica tag ID is read from the `tagID` property and the `NEXT_PUBLIC_YANDEX_METRICA_ID` environment variable. If both are set, the provider property takes priority.
+Yandex.Metrica tag ID is read from the `tagID` property and the `NEXT_PUBLIC_YANDEX_METRICA_ID` environment variable. If both are set, the provider property takes priority.
 
 ### Send events
 
