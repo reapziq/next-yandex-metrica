@@ -23,7 +23,8 @@
     "prepublishOnly": "yarn build",
     "lint": "eslint src --fix",
     "lint:ts": "tsc --noEmit --incremental",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --ci --coverage"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
