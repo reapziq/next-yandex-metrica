@@ -21,3 +21,5 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
