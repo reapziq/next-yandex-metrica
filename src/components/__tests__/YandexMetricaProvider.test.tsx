@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import { HTMLAttributes } from 'react';
 
 import { useTrackRouteChange } from '../../hooks/useTrackRouteChange';
 import { YandexMetricaProvider } from '../YandexMetricaProvider';
@@ -9,7 +10,7 @@ jest.mock('../../hooks/useTrackRouteChange');
 jest.mock(
   'next/script',
   () =>
-    function MockNextScript(props: React.HTMLAttributes<HTMLDivElement>) {
+    function MockNextScript(props: HTMLAttributes<HTMLDivElement>) {
       return <div {...props} />;
     },
 );
