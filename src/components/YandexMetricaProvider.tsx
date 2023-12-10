@@ -12,7 +12,7 @@ interface Props {
   tagID?: number;
   strategy?: ScriptProps['strategy'];
   initParameters?: InitParameters;
-  alternativeCDN?: boolean;
+  shouldUseAlternativeCDN?: boolean;
 }
 
 export const YandexMetricaProvider: FC<Props> = ({
@@ -20,7 +20,7 @@ export const YandexMetricaProvider: FC<Props> = ({
   tagID,
   strategy = 'afterInteractive',
   initParameters,
-  alternativeCDN = false,
+  shouldUseAlternativeCDN = false,
 }) => {
   const YANDEX_METRICA_ID = process.env.NEXT_PUBLIC_YANDEX_METRICA_ID;
   const id = useMemo(() => {
@@ -35,7 +35,7 @@ export const YandexMetricaProvider: FC<Props> = ({
     return <>{children}</>;
   }
 
-  const scriptSrc = alternativeCDN
+  const scriptSrc = shouldUseAlternativeCDN
     ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js'
     : 'https://mc.yandex.ru/metrika/tag.js';
 

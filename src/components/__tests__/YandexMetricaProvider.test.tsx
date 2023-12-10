@@ -51,9 +51,9 @@ describe('YandexMetricaProvider', () => {
     );
   });
 
-  it('renders with alternate CDN url', () => {
+  it('renders with an alternative CDN url', () => {
     render(
-      <YandexMetricaProvider tagID={444} alternativeCDN>
+      <YandexMetricaProvider tagID={444} shouldUseAlternativeCDN>
         <div />
       </YandexMetricaProvider>,
     );
