@@ -17,6 +17,9 @@ jest.mock(
 const METRICA_SCRIPT =
   '(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");';
 
+const METRICA_SCRIPT_ALTERNATIVE_CDN =
+  '(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");';
+
 describe('YandexMetricaProvider', () => {
   it('renders', () => {
     render(
@@ -46,6 +49,21 @@ describe('YandexMetricaProvider', () => {
     expect(document.getElementById('yandex-metrica')).toHaveTextContent(
       `${METRICA_SCRIPT} ym(444, "init", {"accurateTrackBounce":false,"clickmap":false});`,
     );
+  });
+
+  it('renders with alternate CDN url', () => {
+    render(
+      <YandexMetricaProvider tagID={444} alternativeCDN>
+        <div />
+      </YandexMetricaProvider>,
+    );
+
+    expect(useTrackRouteChange).toHaveBeenCalledWith({ tagID: 444 });
+
+    expect(document.getElementById('yandex-metrica')).toHaveTextContent(
+      `${METRICA_SCRIPT_ALTERNATIVE_CDN} ym(444, "init", {});`,
+    );
+    expect(document.getElementById('yandex-metrica-pixel')).toBeInTheDocument();
   });
 
   it('renders children when tagID is not defined', () => {

@@ -34,6 +34,7 @@ export default function MyApp({ Component, pageProps }) {
 | `tagID`          | Yandex.Metrica tag ID.                                                                                                      |
 | `strategy`       | [next/script](https://nextjs.org/docs/api-reference/next/script#strategy) loading strategy. Defaults to `afterInteractive`. |
 | `initParameters` | Yandex.Metrica tag [initialization parameters](https://yandex.com/support/metrica/code/counter-initialize.html).            |
+| `alternativeCDN` | Use Yandex.Metrica [alternative CDN](https://yandex.ru/support/metrica/general/counter-general.html#other__cdn?lang=en).    |
 
 Yandex.Metrica tag ID is read from the `tagID` property and the `NEXT_PUBLIC_YANDEX_METRICA_ID` environment variable. If both are set, the provider property takes priority.
 
