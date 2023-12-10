@@ -12,6 +12,7 @@ interface Props {
   tagID?: number;
   strategy?: ScriptProps['strategy'];
   initParameters?: InitParameters;
+  shouldUseAlternativeCDN?: boolean;
 }
 
 export const YandexMetricaProvider: FC<Props> = ({
@@ -19,6 +20,7 @@ export const YandexMetricaProvider: FC<Props> = ({
   tagID,
   strategy = 'afterInteractive',
   initParameters,
+  shouldUseAlternativeCDN = false,
 }) => {
   const YANDEX_METRICA_ID = process.env.NEXT_PUBLIC_YANDEX_METRICA_ID;
   const id = useMemo(() => {
@@ -33,6 +35,10 @@ export const YandexMetricaProvider: FC<Props> = ({
     return <>{children}</>;
   }
 
+  const scriptSrc = shouldUseAlternativeCDN
+    ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js'
+    : 'https://mc.yandex.ru/metrika/tag.js';
+
   return (
     <>
       <Script id="yandex-metrica" strategy={strategy}>
@@ -41,7 +47,7 @@ export const YandexMetricaProvider: FC<Props> = ({
           m[i].l=1*new Date();
           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+          (window, document, "script", "${scriptSrc}", "ym");
           ym(${id}, "init", ${JSON.stringify(initParameters || {})});
         `}
       </Script>
