@@ -19,7 +19,6 @@
     "analytics"
   ],
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "del-cli dist && tsc",
     "prepublishOnly": "pnpm build",
     "lint": "eslint src --fix --max-warnings 0",

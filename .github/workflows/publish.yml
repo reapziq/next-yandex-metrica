@@ -16,13 +16,15 @@ jobs:
         with:
           version: 8
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
       - name: Install
         run: pnpm install
 
-      - name: Build
-        run: pnpm build
-
       - name: Publish
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
