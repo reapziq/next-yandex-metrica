@@ -22,10 +22,12 @@
     "preinstall": "npx only-allow pnpm",
     "build": "del-cli dist && tsc",
     "prepublishOnly": "pnpm build",
-    "lint": "eslint src --fix",
-    "lint:ts": "tsc --noEmit --incremental",
+    "lint": "eslint src --fix --max-warnings 0",
+    "lint:ts": "tsc --noEmit",
     "test": "jest",
-    "test:ci": "jest --ci --coverage"
+    "test:ci": "jest --ci --coverage",
+    "format": "prettier --write --log-level silent .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.5",
