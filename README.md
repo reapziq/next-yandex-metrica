@@ -75,3 +75,17 @@ export function ActionButton() {
   // ...
 }
 ```
+
+In case if you need to use the Yandex.Metrica object directly, you can access it using the `ym` property.
+
+```jsx
+import { ym } from 'next-yandex-metrica';
+
+export function ActionButton() {
+  return (
+    <button type="button" onClick={() => ym(12345678, 'reachGoal', 'cta-click')}>
+      CTA
+    </button>
+  );
+}
+```
